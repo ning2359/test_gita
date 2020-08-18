@@ -1,0 +1,43 @@
+<%
+		request.setCharacterEncoding("utf-8");
+		String username=request.getParameter("username");
+		String title=request.getParameter("title");
+		String content=request.getParameter("content");
+		Date time=new Date();
+		//将当前请求中包含的留言信息存入一个组合到一个字符串中
+		String msg=username+";"+ title +";"+content+";"+time.toString();
+		List<String> msgList=(List<String>)application.getAttribute("msgList");
+		//如果当前application范围内不存在留言List，则新建一个List
+		if(msgList==null){
+			msgList=new LinkedList<String>();
+		}
+		msgList.add(msg);//将新留言添加到留言记录中
+		//由于本任务只要求保留最新的10条留言记录，所以当超出10条留言时，删除最早的一条
+		if(msgList.size()>10){
+			msgList.remove(0);
+		}
+		//将更新过的留言List存入application中
+		application.setAttribute("msgList", msgList);
+		response.sendRedirect("exam8_messageBoard.jsp");
+	%>
+
+
+
+mklink /J "C:\Program Files\Adobe\Adobe Media Encoder CC 2015" "D:\Adobe\Adobe Media Encoder 2020"
+mklink /J "D:\Adobe\Adobe Media Encoder 2020" 
+
+
+mklink /j "C:\Program Files\Microsoft Office" "G:\Program Files\Microsoft Office"
+
+SELECT DISTINCT t_auth.`name` 
+FROM t_auth
+ LEFT JOIN inner_role_auth ON t_auth.id = inner_role_auth.auth_id
+ LEFT JOIN inner_admin_role ON inner_admin_role.role_id = inner_role_auth.role_id
+ WHERE inner_admin_role.admin_id = 1 
+AND t_auth.`name` != "" AND t_auth.`name` IS NOT NULL;
+
+
+Cannot resolve com.atguigu.spring.cloud:pro43-spring-cloud-common:0.0.1-SNAPSHOT
+
+
+get REDIS_CODE_PREFIX_17753373528
